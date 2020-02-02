@@ -1,0 +1,2 @@
+include ':app', ':mediafire'
+rootProject.name='MediaFireDemo'
