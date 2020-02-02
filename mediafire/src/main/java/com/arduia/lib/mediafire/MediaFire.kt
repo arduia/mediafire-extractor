@@ -13,6 +13,7 @@ object MediaFire{
     private var regex:String? =  "aria-label=\"Download file\"\\n.+href=\"(.*)\""
     private var header:String? = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.99 Safari/537.36"
 
+    @JvmStatic
     fun extract(url:String):MediaFire{
         try {
         if(header!=null){
@@ -31,6 +32,7 @@ object MediaFire{
         return this
     }
 
+    @JvmStatic
     fun extractNow(url:String):String{
         val request = createRequest(url = url)
         request?.let {req->
@@ -49,20 +51,24 @@ object MediaFire{
          throw Exception("Url No Found")
     }
 
+    @JvmStatic
     fun setOnSuccessListener(listener:OnSuccessListener):MediaFire{
         this.onSuccessListener = listener
         return this
     }
 
+    @JvmStatic
     fun setOnFailureListener(listener: OnFailureListener):MediaFire{
         this.onFailureListener = listener
         return this
     }
 
+    @JvmStatic
     fun setClient(client:OkHttpClient){
         this.okHttpClient = client
     }
 
+    @JvmStatic
     fun release(){
         this.onFailureListener=null
         this.onSuccessListener=null
