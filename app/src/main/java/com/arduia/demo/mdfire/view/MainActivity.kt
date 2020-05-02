@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log.d
 import com.arduia.demo.mdfire.R
-import com.arduia.lib.mediafire.MediaFire
+import com.arduia.lib.mediafire.MediaFireOld
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        MediaFire.extract(url).setOnSuccessListener(object :MediaFire.OnSuccessListener{
+        MediaFireOld.extract(url).setOnSuccessListener(object :MediaFireOld.OnSuccessListener{
                 override fun onResult(url: String) {
                     d("My_MainActivity","Result -> $url")
                 }
@@ -21,6 +21,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        MediaFire.release()
+        MediaFireOld.release()
+    }
+    companion object{
+        private const val TAG = "MY_MainActivity"
     }
 }
