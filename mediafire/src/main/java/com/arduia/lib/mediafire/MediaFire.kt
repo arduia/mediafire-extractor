@@ -6,7 +6,7 @@ import java.util.regex.Pattern
 
 object MediaFire {
 
-    private var okHttpClient:OkHttpClient? = OkHttpClient()
+    private val okHttpClient:OkHttpClient? by lazy { OkHttpClient()  }
     private var regex:String? =  "aria-label=\"Download file\"\\n.+href=\"(.*)\""
     private var header:String? = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.99 Safari/537.36"
 
