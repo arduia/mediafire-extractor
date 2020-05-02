@@ -23,7 +23,7 @@ object MediaFire {
             if( header !=null){
                 val request = createRequest(url)
                try{
-                     MediaFireTask(Pattern.compile(regex!!), okHttpClient!!,request!!,listener =listener)
+                     MediaFireTask(Pattern.compile(regex!!), okHttpClient!!,request!!,listener = listener)
                          .send()
                 }catch (e:Exception){
                    e.printStackTrace()
